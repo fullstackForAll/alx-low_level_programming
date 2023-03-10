@@ -1,18 +1,14 @@
 #include "holberton.h"
 
 /**
- * _abs - check the code for Holberton School students.
- *
- * @n: is an integer argument
- *
- * Return: Always 0.
+ * _abs - calculate the absolute value of the number from zero.
+ * @i: the integer to be converted.
+ * Return: absolute value of the input number.
  */
 
-int _abs(int n)
+int _abs(int i)
 {
-	if (n >= 0)
-	{
-		return (n);
-	}
-	return (-n);
+	if (i < 0)
+		i = i * -1;
+	return (i);
 }

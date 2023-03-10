@@ -1,17 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int _strlen(char *s);
+int _toint(char *s);
 /**
- * main - Prints the multiplication of two numbers, followed by a new line.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
+ * main - multiplies two numbers
+ * @argc: number of arguments
+ * @argv: array of pointers to string arguments
  *
- * Return: If the program receives two arguments - 0.
- *         If the program does not receive two arguments - 1.
+ * Return: always 0 for success
  */
+
 int main(int argc, char *argv[])
 {
-	int num1, num2, prod;
+	int num1, num2;
 
 	if (argc != 3)
 	{
@@ -19,11 +21,69 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
-	prod = num1 * num2;
-
-	printf("%d\n", prod);
-
+	if (*argv[1] == 48)
+		num1 = 0;
+	else
+		num1 = _toint(argv[1]);
+	if (*argv[2] == 48)
+		num2 = 0;
+	else
+		num2 = _toint(argv[2]);
+	printf("%d\n", num1 * num2);
 	return (0);
+}
+
+/**
+ * _strlen - prints out the length of the specified string
+ * @s: string which length is to be calculated
+ *
+ * Return: the length of the string (int)
+ */
+
+int _strlen(char *s)
+{
+	int size = 0;
+
+	while (*s)
+	{
+		size++;
+		s++;
+	}
+	return (size);
+}
+
+/**
+ * _toint - convert str to int
+ * @s: string value
+ *
+ * Return: int value
+ */
+int _toint(char *s)
+{
+	int size, i, number, isNegative;
+
+	size = _strlen(s);
+	number = 0;
+	isNegative = 0;
+	for (i = 0; i < size; i++)
+	{
+		if (s[i] == 45)
+		{
+			isNegative = 1;
+			continue;
+		}
+		else if (s[i] > 47 && s[i] < 58)
+		{
+			number = (number * 10) + (s[i] - 48);
+			/* printf("%dth - %d\n", i, number); */
+		}
+		else
+		{
+			return (0);
+		}
+	}
+	/* printf("%s => %d : len - %d\n", s, number, size); */
+	if (isNegative)
+		return (-1 * number);
+	return (number);
 }

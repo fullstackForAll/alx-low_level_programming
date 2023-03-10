@@ -1,25 +1,23 @@
 #include "holberton.h"
 
 /**
- * _strncpy - two words
- * @dest : pointer to char params
- * @src : pointer to char params
- * @n : int params
- * Return: *dest
+ * _strncpy - main function
+ * @dest: pointer of char
+ * @src: poiter of char
+ * @n: intiger of function
+ * Return: returns char
  */
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; src[i] != '\0' && i < n; i++)
+	while ((src[i] != 0) && (i < n))
 	{
 		dest[i] = src[i];
+		i++;
 	}
-
-	for ( ; i < n; i++)
-	{
-		dest[i] = '\0';
-	}
+	while (i < n)
+		dest[i++] = '\0';
 	return (dest);
 }

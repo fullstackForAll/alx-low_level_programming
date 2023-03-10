@@ -1,29 +1,35 @@
 #include "holberton.h"
+
 /**
- * _atoi - int
- * @s: pointer
- * Return: int.
+ * _atoi - main function
+ *
+ * @s: pointer variable
+ *
+ * Return: returns int
+ *
  */
+
 int _atoi(char *s)
 {
 	int i;
-	int res = 0;
-	int sig = -1;
-	int brk = 0;
+	int h = 0;
+	int p = -1;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] == '-')
-			sig = sig * -1;
-		if (s[i] >= '0' && s[i] <= '9')
+			p *= -1;
+		if (s[i] > 47 && s[i] < 58)
 		{
-			res = res * 10;
-			res -= (s[i] - '0');
-			brk = 1;
+			if (h < 0)
+				h = (h * 10) - (s[i] - '0');
+			else
+				h = (s[i] - '0') * -1;
+			if (s[i + 1] < 48 || s[i + 1] > 57)
+				break;
 		}
-		else if (brk == 1)
-			break;
 	}
-	res = sig * res;
-	return (res);
+	if (p < 0)
+		h *= -1;
+	return (h);
 }

@@ -1,1 +1,1 @@
-ALX argument count and argument value
+<b> This part focuses on argument in a function</b>

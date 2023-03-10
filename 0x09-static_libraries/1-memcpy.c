@@ -1,20 +1,21 @@
 #include "holberton.h"
 
 /**
- * _memcpy - irontnoux2
- * @dest: pointer to char params
- * @src: pointer to char params
- * @n: size
- * Return: *dest
+ * _memcpy - main func
+ * @dest: char pointer var
+ * @src: char pointer src
+ * @n: int var
+ * Return: returns char
  */
 
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int i;
+	unsigned int i = 0;
 
-	for (i = 0; i < n; i++)
+	while (i < n)
 	{
 		dest[i] = src[i];
+		i++;
 	}
 	return (dest);
 }

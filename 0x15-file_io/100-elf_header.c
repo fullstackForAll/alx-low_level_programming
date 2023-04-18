@@ -1,8 +1,9 @@
 #include "main.h"
 
+
 /*
  * File: 100-elf_header.c
- * Auth:Abel Berhanu
+ * Auth: Isaac MUKIZA
  */
 
 /**
